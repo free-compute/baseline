@@ -1,80 +1,65 @@
-# Baseline — Roadmap
+# Baseline
+
+**The standard for user-owned AI compute in applications.**
+
+Baseline is an open specification that defines how applications should connect users to AI compute they own or control — without requiring subscriptions, centralized servers, or payment to the application developer.
+
+It is not an app. It is the baseline that apps are built on.
 
 ---
 
-## v0.1 — Proof of Concept
-**Goal:** Prove the end-to-end flow works. One feed, one AI provider, one article view.
+## The Principle
 
-- [ ] Scaffold React Native app (iOS + Android)
-- [ ] Add an RSS feed by URL
-- [ ] Fetch and parse feed articles
-- [ ] Connect to Google Gemini (first AI provider — free tier, easy to test)
-- [ ] Display a single article in the baseline format:
-  - Original headline
-  - Neutral headline
-  - Key facts
-  - Why it matters
-  - Opinion / speculation
-  - Link to original
-- [ ] Basic settings screen (feed URL, API key)
+Most people don't own solar panels, so they can't own their electricity — they rent it from a utility. But most people *do* own their phone. Your phone is your compute. If you own your compute, you can run AI on it. You should not have to pay anyone for that.
+
+If you want to pay a company to host AI for you — that is your choice. But it must never be a requirement.
+
+> **Information is public. Compute is owned. Access should not depend on either.**
 
 ---
 
-## v0.2 — All AI Providers
-**Goal:** Every user has a path in, regardless of what they own or what they pay.
+## What Baseline Defines
 
-- [ ] Local LLM app detection (auto-detect Locally, PocketPal AI on localhost)
-- [ ] Ollama support
-- [ ] OpenAI support
-- [ ] Anthropic support
-- [ ] Any OpenAI-compatible endpoint support
-- [ ] First-run setup wizard (walks user through choosing a provider)
-- [ ] Test call to confirm connection before saving settings
+- How applications discover AI compute available on a user's device
+- How applications connect to user-managed remote servers
+- How applications use third-party cloud APIs the user holds the keys to
+- A unified interface so any provider is interchangeable
+- Privacy guarantees that implementations must uphold
+- What it means to be Free Compute compliant
 
----
-
-## v0.3 — Real Mobile Experience
-**Goal:** The app feels like something you'd actually use every morning.
-
-- [ ] Morning push notification ("Your digest is ready")
-- [ ] User-configurable digest time
-- [ ] Multiple feeds — add, remove, pause
-- [ ] Curated starter feed list (user opts in, nothing added by default)
-- [ ] Reader modes: Reporter, Analyst, Media Literacy
-- [ ] Framing analysis (Media Literacy mode)
-- [ ] Offline reading — cached digests available without internet
+See [`spec/FREE_COMPUTE.md`](./spec/FREE_COMPUTE.md) for the full specification.
 
 ---
 
-## v0.4 — Polish and Accessibility
-**Goal:** Works well on every device, not just new ones.
+## Who This Is For
 
-- [ ] Performance testing on older phones (iPhone 11, mid-range Android)
-- [ ] iOS background task handling — digest generates reliably at scheduled time
-- [ ] Graceful degradation for small local models (shorter summaries, simpler prompts)
-- [ ] Accessibility: dynamic text size, screen reader support
-- [ ] Error handling: feed down, AI timeout, no internet
-- [ ] App icon and basic visual design
+**App developers** who want to give users full control over their AI compute without building the provider abstraction from scratch.
+
+**Users** who want to understand what a Baseline-compliant app promises them.
+
+**Anyone** who believes compute ownership matters.
 
 ---
 
-## v1.0 — Public Launch
-**Goal:** Ready for anyone to download and use.
+## Implementations
 
-- [ ] App Store submission (iOS)
-- [ ] Google Play submission (Android)
-- [ ] Contribution guide (CONTRIBUTING.md)
-- [ ] Finalized prompts published in repo
-- [ ] Basic documentation for self-builders (how to clone and run locally)
+Baseline is language and platform agnostic. Any developer can implement the specification in any stack.
+
+| Name | Platform | Language | Description |
+|------|----------|----------|-------------|
+| *(reference implementation coming soon)* | iOS / Android | TypeScript / Ionic / Angular | Neutral news reader |
+
+To add your implementation, open a pull request.
 
 ---
 
-## v2.0 — Future
-Ideas for after v1.0 ships. Not committed, not scheduled.
+## Built With AI, Openly
 
-- YouTube channel transcript support
-- Podcast feed support
-- Newsletter parsing
-- Custom prompt editing for power users
-- Per-feed reader mode overrides
-- Multiple digest schedules (morning + evening)
+Baseline was designed with the assistance of AI (Claude by Anthropic). This is disclosed openly — a project about transparency should be transparent about how it was made.
+
+---
+
+## License
+
+- **Specification** ([`spec/FREE_COMPUTE.md`](./spec/FREE_COMPUTE.md)): [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) — public domain, no restrictions
+- **Everything else**: [AGPL-3.0](./LICENSE) — forks must stay open source
